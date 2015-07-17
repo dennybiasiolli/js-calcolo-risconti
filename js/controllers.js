@@ -52,8 +52,9 @@ angular.module('myApp.controllers', [])
         var dataAttuale = new Date();
         $scope.DataInizio = new Date(dataAttuale.getFullYear(), dataAttuale.getMonth(), dataAttuale.getDate());
         $scope.DataFine = new Date(dataAttuale.getFullYear() + 1, dataAttuale.getMonth(), dataAttuale.getDate());
+        $scope.DataFine.setDate($scope.DataFine.getDate() - 1);
         //$scope.DataInizio = new Date(2014, 6, 1);
         //$scope.DataFine = new Date(2015, 5, 30);
-        $scope.Importo = 123;
-        $scope.calcolaRisconti();
+        //$scope.Importo = 123;
+        //$scope.calcolaRisconti();
     }]);
