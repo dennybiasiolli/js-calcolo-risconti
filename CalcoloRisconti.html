@@ -1,0 +1,71 @@
+<html ng-app="myApp">
+    <title>Calcolo Ratei o Risconti suddivisi per anno gratis online</title>
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/0.10.0/angular-material.min.css">
+    <body ng-controller="myCtrl">
+        <md-toolbar layout="row">
+            <h1 class="md-toolbar-tools" layout-align-gt-sm="center">Calcolo Ratei o Risconti suddivisi per anno</h1>
+        </md-toolbar>
+        <div layout="column">
+            <md-content layout="row" layout-sm="column">
+                <md-content layout-padding>
+                    <div layout layout-sm="column">
+                        <md-input-container>
+                            <label>Data inizio</label>
+                            <input type="date" ng-model="DataInizio">
+                        </md-input-container>
+                        <md-input-container>
+                            <label>Data fine</label>
+                            <input type="date" ng-model="DataFine">
+                        </md-input-container>
+                        <md-input-container>
+                            <label>Importo</label>
+                            <input type="number" ng-model="Importo">
+                        </md-input-container>
+                        <md-input-container>
+                            <md-button class="md-raised md-primary" ng-click="calcolaRisconti()">Calcola</md-button>
+                        </md-input-container>
+                    </div>
+                    <p ng-if="diffGiorni > 0">{{ diffGiorni }} giorni totali</p>
+                    <p ng-if="diffAnni > 0 && ImportoTotCalcolato > 0">{{ ImportoTotCalcolato | currency }} importo totale suddiviso sui {{ diffAnni }} anni</p>
+                    <p ng-if="ImportoDaSuddividere > 0.001">
+                        {{ ImportoDaSuddividere | currency }} importo da suddividere manualmente.<br>
+                        La differenza pu&ograve; essere dovuta ad arrotondamenti effettuati durante il calcolo degli importi annuali.
+                    </p>
+                </md-content>
+            </md-content>
+        </div>
+
+        <md-divider></md-divider>
+
+        <div layout="column">
+            <md-content layout="row" layout-sm="column">
+                <md-content layout-padding>
+                    <md-list>
+                        <md-list-item class="md-3-line" ng-repeat="v in arrValori">
+                            <div class="md-list-item-text">
+                                <h2>Anno {{ v.Anno }}</h2>
+                                <p><b>{{ v.Giorni }}</b> giorni calcolati dal <b>{{ v.DataInizio | date:'dd/MM/yyyy' }}</b> al <b>{{ v.DataFine | date:'dd/MM/yyyy' }}</b></p>
+                                <p><b>{{ v.Importo | currency }}</b> importo di competenza dell'anno</p>
+                            </div>
+                            <!--<md-divider></md-divider>-->
+                        </md-list-item>
+                    </md-list>
+                </md-content>
+            </md-content>
+        </div>
+
+
+        <section layout="row" layout-sm="column" layout-align="center center">
+            <md-button class="md-primary" ng-href="https://github.com/dennybiasiolli/angular-calcoloRisconti" target="_blank">View source on GitHub</md-button>
+        </section>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
+        <script src="https://code.angularjs.org/1.3.15/i18n/angular-locale_it-it.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular-animate.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular-aria.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular-route.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angular_material/0.10.0/angular-material.min.js"></script>
+        <script src='js/app.js'></script>
+        <script src='js/controllers.js'></script>
+    </body>
+</html>
