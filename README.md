@@ -1,5 +1,5 @@
 # angular-calcoloRisconti
-Una semplice utility per calcolare i risconti suddivisi per anno
+Una semplice utility per calcolare ratei o risconti suddivisi per anno
 
 ***
 
