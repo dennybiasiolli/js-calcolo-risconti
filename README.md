@@ -9,6 +9,6 @@ Implementata in HTML, CSS e JavaScript vanilla (nessun framework).
 
 Apri nel browser:
 
-`file:///path/to/angular-calcoloRisconti/CalcoloRisconti.html`
+`file:///path/to/js-calcolo-risconti/CalcoloRisconti.html`
 
 oppure servi la cartella con un server locale statico.
